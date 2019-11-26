@@ -1,0 +1,29 @@
+{
+  "name": "mmc-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Tushar Budhe",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "events": "^3.0.0",
+    "express": "^4.17.1",
+    "file-stream-rotator": "^0.5.5",
+    "fs": "0.0.1-security",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.7.12",
+    "morgan": "^1.9.1",
+    "parse-bearer-token": "^1.0.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.2.2"
+  }
+}
