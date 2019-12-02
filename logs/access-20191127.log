@@ -1,0 +1,7 @@
+::ffff:127.0.0.1 - - [27/Nov/2019:17:09:16 +0000] "GET /api/hello HTTP/1.1" 200 46 "-" "node-superagent/3.8.3"
+::1 - - [27/Nov/2019:18:40:14 +0000] "POST /api/employeefeedback/post/tbudhe3@tush.com HTTP/1.1" 500 98 "-" "PostmanRuntime/7.1.1"
+::1 - - [27/Nov/2019:18:40:23 +0000] "GET /api/employee/tbudhe3@tush.com HTTP/1.1" 200 31 "-" "PostmanRuntime/7.1.1"
+::1 - - [27/Nov/2019:18:41:44 +0000] "POST /api/employee/create HTTP/1.1" 201 145 "-" "PostmanRuntime/7.1.1"
+::1 - - [27/Nov/2019:18:42:10 +0000] "GET /api/employee/tusharbudhe@guycarp.com HTTP/1.1" 200 147 "-" "PostmanRuntime/7.1.1"
+::1 - - [27/Nov/2019:19:46:49 +0000] "POST /api/employee/create HTTP/1.1" 400 60 "-" "PostmanRuntime/7.1.1"
+::1 - - [27/Nov/2019:19:47:00 +0000] "POST /api/employee/create HTTP/1.1" 201 146 "-" "PostmanRuntime/7.1.1"

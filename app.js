@@ -1,23 +1,21 @@
-
 'use strict';
 const express = require('express');
 const bodyParser = require('body-parser');
-const methodOverride = require('method-override');
 const cors = require('cors');
 const parsetoken = require('parse-bearer-token');
 const eventEmitter = require('events').EventEmitter;
 const appStartEmitter = new eventEmitter();
 const app = express();
 const routes = express.Router();
-app.use(methodOverride())
-
+const mongoosedb = require('./services/db/utils').mongoose;
+app.use(routes);
 //logs all requets
 require('./logs').configureLogs(app);
-app.use(routes);
+
 const config = require('./app.config').config;
-const mongoose = require('./routes/services/db/utils').mongoose;
+
 const employeeRoutes = require('./routes/employee')(routes);
-// const employeeFeedbackRoutes = require('./routes/employeefeedback')(routes);
+const jsonplaceRoutes = require('./routes/jsonplaceholder')(routes);
 
 //support cors configurations
 app.use(cors());
@@ -59,22 +57,17 @@ app.get('/api/badrequest/:id', (req, res, next) => {
         });
 });
 app.use('/api', employeeRoutes);
-// app.use('/api', employeeFeedbackRoutes);
-appStartEmitter.on(`application_start`, () => {
-    applicationStart();
-});
-mongoose.connect(`mongodb://${config.mongoDbServer}/${config.mongoDbName}`, function (err) {
-    if (err) throw err;
-    console.log('Mongo successfully connected');
-    appStartEmitter.emit(`application_start`);
-});
-var applicationStart = () => {
-    app.listen(config.PORT, () => {
-        console.log(`App is listing on PORT : ${config.PORT}`);
-        if (config.inTestingPhase)
-            app.emit("app_started");
-    });
-}
+app.use('/api', jsonplaceRoutes);
 
-
+var mongoDb = mongoosedb.connection;
+mongoosedb.connect(`mongodb://${config.mongoDbServer}/${config.mongoDbName}`, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoDb.on('open', () => {
+    console.log(`Db Connection Done`);
+});
+mongoDb.on('error', (err) => {
+    console.log(`Db Connection Error  ${err}`);
+});
+let PORT = config.PORT;
+app.listen(PORT);
+console.log(`App is listing on PORT : ${PORT}`);
 module.exports = app;

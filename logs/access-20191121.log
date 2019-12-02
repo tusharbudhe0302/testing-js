@@ -1,5 +1,0 @@
-
-::1 - - [21/Nov/2019:21:58:17 +0000] "GET /api/employee/list HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36"
-::1 - - [21/Nov/2019:21:58:31 +0000] "GET /api/team/list HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36"
-::1 - - [21/Nov/2019:21:58:42 +0000] "GET /api/forbidden HTTP/1.1" 403 12 "-" "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36"
-::1 - - [21/Nov/2019:21:58:52 +0000] "GET /api/Hello HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36"

@@ -18,7 +18,7 @@ var employeeSchema = new Schema({
         required: true,
         match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
     }
-});
+}, { versionKey: false });
 var Employee = mongoose.model('Employee', employeeSchema);
 
 module.exports = Employee;
